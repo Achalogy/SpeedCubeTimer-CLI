@@ -1,13 +1,35 @@
-# SpeedCubeTimer
+# Terminal SpeedCubeTimer
 
-## Use
+## Installation
 
-    ¡No requirements!
+    ¡No requirements! Just Download and play
 
-Starts timer.py and then just press space bar.
+## Usage
 
-To see all your solves type `T` and to erase your old solves type `C`.
+Starts timer.py and you will see this. 
 
-This is an initial Beta (And I'm not very good Writing in English)
+    python timer.py
 
--Ach
+ ![Spacebar to Send scrable, T to show solves and C to clear old solves](https://i.imgur.com/lDFxlk9.png)
+
+## Scramble
+
+Generates a random 20 moves scramble which works this way:
+    
+    2/4 Moves will be Clockwise ( U )
+    1/4 Moves will be Counter-Clockwise ( U' )
+    1/4 Moves will be Double ( U2 )
+
+## Timer
+
+Currently this app does'nt support Inspection Time.
+
+  ![Shows a random scramble and timer working.](https://i.imgur.com/5Tgmafj.png)
+
+You can STOP the Timer with any key but you can only starts it with the space bar. When You finish your solve, terminal will shows your last 5 solves.
+Then press Spacebar to back to menu.
+
+## Storage Solves
+
+Solves will be storage at `solves.txt`. And you can see it typing "T" or delete it typing "C" in the terminal.
+

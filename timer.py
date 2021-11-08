@@ -12,7 +12,7 @@ stdscr.nodelay(1)
 
 def timer():
 
-    print("TIMER")
+    print("TIMER (Stop with any key)", end="\n\r\n")
 
     try:
 
@@ -22,7 +22,7 @@ def timer():
         while True:
             num += 0.01
             key=stdscr.getch()
-            if key == ord(" "):
+            if not key == -1:
                 break 
             elif key == 27:
                 stop()
@@ -63,7 +63,6 @@ def genScramble():
             scramble.append(str(move) + add)
             i = i+1
 
-    key = None
     return scramble
 
 def stop():
@@ -72,25 +71,44 @@ def stop():
     curses.endwin()
     raise SystemExit
 
+def reset():
+    curses.endwin()
+    curses.initscr()
 def main():
-    key = None
+
+    #curses.noecho()
+    #curses.nocbreak()
+    #curses.endwin()
+
+    key=stdscr.getch()
+    print('Spacebar: Send Scramble', end="\n\r")
+    print('T: Show Solves', end="\n\r")
+    print('C: Clear Solves', end="\n\r")
+    print('esc: Exit', end="\n\r")    
+    print('')
     while True:
         key=stdscr.getch()
         try:
             if key == ord(' '):
+                curses.endwin()
+                curses.initscr()
+
                 # Envia el scramble
-                print(" ".join(genScramble()))
+                print(" ".join(genScramble()), end="\n\r")
                 break
             elif key == ord('t'):
+                reset()
                 try:
-                    r = open('times.txt', 'r')
+                    r = open('solves.txt', 'r')
 
                     times = r.read().split("\n")
 
                     for time in times:
                         times[times.index(time)] = float(time)
 
-                    print(times)
+                    print("Exit with Spacebar", end="\n\r")
+                    print("")
+                    print(times, end="\n\r")
 
                     while True:
                         key = stdscr.getch()
@@ -102,27 +120,27 @@ def main():
                         except KeyboardInterrupt:
                             stop()
                         
-                    curses.echo()
-                    curses.nocbreak()
-                    curses.endwin()
+                    reset()
                     main()
 
                 except:
-                    print("Not Solves avaliable")
+                    print("Solves not avaliable")
+
+                timeD.sleep(2)
+
+                reset()
+                main()
 
             elif key == ord('c'):
 
                 try:
-                    os.remove('./times.txt')
+                    os.remove('./solves.txt')
                     print("Solves Erased")
                 except:
                     print("Solves Don't exists")
 
                 timeD.sleep(2)
-
-                curses.echo()
-                curses.nocbreak()
-                curses.endwin()
+                reset()
                 main()
 
             elif key ==27:
@@ -143,30 +161,32 @@ def main():
 
 
     try:
-        r = open('times.txt', 'r')
-        f = open('times.txt', 'a')
+        r = open('solves.txt', 'r')
+        f = open('solves.txt', 'a')
         f.write("\n" + str(round(num,2)))
         f.close()
     except:
-        f = open('times.txt', 'w')
+        f = open('solves.txt', 'w')
         f.write(str(round(num,2)))
         f.close()
-        r = open('times.txt', 'r')
+        r = open('solves.txt', 'r')
 
-    print("Time: " + str(round(num, 2)), end="\n")
+    print("TIME: " + str(round(num, 2)), end="\n\r\n")
 
     times = r.read().split("\n")
 
     for time in times:
         times[times.index(time)] = float(time)
 
-    print("Last 5 Solves:")
+    print("Last 5 Solves:", end="\n\r")
+
+    curses.cbreak()
 
     for x in range(1, 6):
 
         if not len(times) - x < 0:
             try:
-                print(str(x) + ") " + str(times[len(times)-x]))
+                print("  " + str(x) + ") " + str(times[len(times)-x]), end="\n\r")
             except:
                 pass
 
@@ -175,9 +195,7 @@ def main():
         key = stdscr.getch()
         try:
             if key == ord(' '):
-                curses.echo()
-                curses.nocbreak()
-                curses.endwin()
+                reset()
                 main()
         except KeyboardInterrupt:
             stop()
