@@ -3,7 +3,7 @@ import datetime
 import curses
 import os
 import random
-#from pynput import keyboard as kb
+import statistics
 
 stdscr=curses.initscr()
 curses.noecho()
@@ -71,9 +71,109 @@ def stop():
     curses.endwin()
     raise SystemExit
 
+def getStats(times):
+    
+    stats = {}
+
+    global_average = round(statistics.mean(times), 2)
+    
+    stats["average"] = {}
+    stats["average"]["global"] = global_average    
+
+    a3_current = []
+    a5_current = []
+    a12_current = []
+    a100_current = []
+
+    if len(times) >= 3:
+        for x in range(1, 4):
+            a3_current.append(times[len(times) - x])
+        stats["a3"] = {}
+        stats["a3"]["current"] = round(statistics.mean(a3_current), 2)
+
+    if len(times) >= 5:
+        for x in range(1, 6):
+            a5_current.append(times[len(times) - x])
+        stats["a5"] = {}
+        stats["a5"]["current"] = round(statistics.mean(a5_current), 2)
+
+    if len(times) >= 12:
+        for x in range(1, 13):
+            a12_current.append(times[len(times) - x])
+        stats["a12"] = {}
+        stats["a12"]["current"] = round(statistics.mean(a12_current), 2)
+
+    if len(times) >= 100:
+        for x in range(1, 101):
+            a100_current.append(times[len(times) - x])
+        stats["a100"] = {}
+        stats["a100"]["current"] = round(statistics.mean(a100_current), 2)
+
+    # Find the Better stats
+
+    a3_times = []
+    a5_times = []
+    a12_times = []
+    a100_times = []
+
+    if len(times) >= 3:
+        for x in range(1, len(times) -1 ):
+            try:
+                av3 = []
+
+                for y in range(-1, 2):
+                    av3.append(times[x + y])
+            except:
+                pass
+
+            a3_times.append(round(statistics.mean(av3), 2))
+        stats["a3"]["global"] = min(a3_times)
+
+    if len(times) >= 5:
+        for x in range(1, len(times) -1 ):
+            try:
+                av5 = []
+
+                for y in range(-1, 4):
+                    av5.append(times[x + y])
+            except:
+                pass
+
+            a5_times.append(round(statistics.mean(av5), 2))
+        stats["a5"]["global"] = min(a5_times)
+
+    if len(times) >= 12:
+        for x in range(1, len(times) -1 ):
+            try:
+                av12 = []
+
+                for y in range(-1, 11):
+                    av12.append(times[x + y])
+            except:
+                pass
+
+            a12_times.append(round(statistics.mean(av12), 2))
+        stats["a12"]["global"] = min(a12_times)
+
+    if len(times) >= 100:
+        for x in range(1, len(times) -1 ):
+            try:
+                av100 = []
+
+                for y in range(-1, 99):
+                    av100.append(times[x + y])
+            except:
+                pass
+
+            a100_times.append(round(statistics.mean(av100), 2))
+        stats["a100"]["global"] = min(a100_times)
+
+    return stats 
+
 def reset():
     curses.endwin()
     curses.initscr()
+
 def main():
 
     #curses.noecho()
@@ -106,7 +206,23 @@ def main():
                     for time in times:
                         times[times.index(time)] = float(time)
 
+                    stats = getStats(times)
                     print("Exit with Spacebar", end="\n\r")
+                    print("")
+                    print("           CURRENT      GLOBAL", end="\n\r")
+                    print(" Average           "+ str(stats["average"]["global"]) , end="\n\r")
+
+                    if len(times) >= 3:
+                        print("      a3    "+ str(stats["a3"]["current"]) + "        " +  str(stats["a3"]["global"]), end="\n\r")
+                    if len(times) >= 5:
+                        print("      a5    "+ str(stats["a5"]["current"]) + "        " +  str(stats["a5"]["global"]), end="\n\r")
+                    if len(times) >= 12:
+                        print("     a12    "+ str(stats["a12"]["current"]) + "        " +  str(stats["a12"]["global"]), end="\n\r")
+                    if len(times) >= 100:
+                        print("    a100    "+ str(stats["a100"]["current"]) + "        " +  str(stats["a100"]["global"]), end="\n\r")
+                    print("")
+                    print("Total = " + str(len(times)), end = "\n\r")
+                    print("")
                     print("")
                     print(times, end="\n\r")
 
@@ -125,8 +241,7 @@ def main():
 
                 except:
                     print("Solves not avaliable")
-
-                timeD.sleep(2)
+                    timeD.sleep(2)
 
                 reset()
                 main()
