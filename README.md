@@ -33,3 +33,15 @@ Then press Spacebar to back to menu.
 
 Solves will be storage at `solves.txt`. And you can see it typing "T" or delete it typing "C" in the terminal.
 
+## Stats
+
+Type "T" to watch your stats. 
+Supports:
+ 
+  - Total Average
+  - a3 Current and Better Average
+  - a5 Current and Better Average
+  - a12 Current and Better Average
+  - a100 Current and Better Average
+
+  ![Current and global stats for Average, a3, a5, a12 and a100](https://i.imgur.com/sHvoc1g.png)
