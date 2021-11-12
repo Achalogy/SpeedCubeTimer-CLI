@@ -20,11 +20,17 @@ Generates a random 20 moves scramble which works this way:
     1/4 Moves will be Counter-Clockwise ( U' )
     1/4 Moves will be Double ( U2 )
 
+--- --- **NEW!** --- ---
+
+Terminal shows graphically the scramble.
+
+  ![Shows graphically the scramble](https://i.imgur.com/VRSwl5q.png)
+
 ## Timer
 
 Currently this app does'nt support Inspection Time.
 
-  ![Shows a random scramble and timer working.](https://i.imgur.com/5Tgmafj.png)
+  ![Shows a random scramble and timer working.](https://i.imgur.com/YoXWZji.png)
 
 You can STOP the Timer with any key but you can only starts it with the space bar. When You finish your solve, terminal will shows your last 5 solves.
 Then press Spacebar to back to menu.
@@ -45,3 +51,13 @@ Supports:
   - a100 Current and Better Average
 
   ![Current and global stats for Average, a3, a5, a12 and a100](https://i.imgur.com/sHvoc1g.png)
+
+## Making Of
+
+Graphically Scrambles were made totally from scratch.
+
+ - First Attemps 
+  ![](https://i.imgur.com/Nm05glg.jpg)
+
+ - First Scramble Tried
+  ![](https://i.imgur.com/dzImXvi.jpg)
