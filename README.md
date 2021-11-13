@@ -1,5 +1,23 @@
 # Terminal SpeedCubeTimer
 
+Last update may contain Bugs, **please report it.**
+
+## Recent changes
+
+- Menu simplified
+- **NEW** Stats
+  - Delete All confirmation
+  - Delete **SINGLE** solve
+  - Personal Records warnings
+
+    ![Personal record warning Screenshot](https://i.imgur.com/QTbkaEV.png)
+
+- Code Cleaned
+
+Next update will be again Code Clean ( Cube Simulation ) 
+
+### v4.0.0 will add **SETTINGS**
+
 ## Installation
 
     ¡No requirements! Just Download and play
@@ -8,9 +26,9 @@
 
 Starts timer.py and you will see this. 
 
-    python timer.py
+    python SpeedCubeTimer.py
 
- ![Spacebar to Send scrable, T to show solves and C to clear old solves](https://i.imgur.com/lDFxlk9.png)
+ ![Spacebar to Send scrable, T to show solves and C to clear old solves](https://i.imgur.com/2hTlKwD.png)
 
 ## Scramble
 
@@ -50,7 +68,7 @@ Supports:
   - a12 Current and Better Average
   - a100 Current and Better Average
 
-  ![Current and global stats for Average, a3, a5, a12 and a100](https://i.imgur.com/sHvoc1g.png)
+  ![Current and global stats for Average, a3, a5, a12 and a100](https://i.imgur.com/Yrlfzgq.png)
 
 ## Making Of
 
