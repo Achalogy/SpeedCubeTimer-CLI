@@ -50,8 +50,6 @@ def getStats(solves):
 
     def better_solves(x, t):
 
-        print(x)
-
         if len(solves) >= x:
             for solve in range(1, len(solves) - 1):
                 try:
@@ -71,7 +69,7 @@ def getStats(solves):
     better_solves(5, a5_solves)
     better_solves(12, a12_solves)
     better_solves(100,  a100_solves)
-    
+
     stats["pr"] = min(solves)
     stats["solves"] = len(solves)
 
@@ -119,13 +117,13 @@ def resume():
     print("")
     print("Last 5 solves:", end = "\n\r")
 
-    solves_reversed = solves.reverse()
+    solves.reverse()
     for solve in range(0, 5):
 
-        try:
-            print("  " + str(solve + 1) + ") " + str(solves_reversed[solve]), end = "\n\r")
-        except:
-            pass
+        #try:
+            print("  " + str(solve + 1) + ") " + str(solves[solve]), end = "\n\r")
+        #except:
+        #    pass
 
     return
 
