@@ -120,10 +120,10 @@ def resume():
     solves.reverse()
     for solve in range(0, 5):
 
-        #try:
+        try:
             print("  " + str(solve + 1) + ") " + str(solves[solve]), end = "\n\r")
-        #except:
-        #    pass
+        except:
+            pass
 
     return
 
