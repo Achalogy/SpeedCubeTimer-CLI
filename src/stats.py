@@ -71,11 +71,7 @@ def getStats(solves):
     better_solves(5, a5_solves)
     better_solves(12, a12_solves)
     better_solves(100,  a100_solves)
-
-    print(a3_solves)
-    print(a5_solves)
-    print(a12_solves)
-
+    
     stats["pr"] = min(solves)
     stats["solves"] = len(solves)
 
