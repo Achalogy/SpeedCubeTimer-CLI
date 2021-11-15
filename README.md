@@ -17,7 +17,13 @@ Next update will be again Code Clean ( Cube Simulation )
 
 ## Installation
 
-    ¡No requirements! Just Download and play
+I want to do this timer without external pip modules but default python/terminal colors are ugly :/
+
+    pip install -r requirements.txt
+    
+or
+
+    pip install colored
 
 ## Usage
 
@@ -38,7 +44,7 @@ Generates a random 20 moves scramble which works this way:
 Terminal shows graphically the scramble.
 
   ![Shows graphically the scramble](https://i.imgur.com/VRSwl5q.png)
-  ![Shows graphically the scramble](https://i.imgur.com/WQ2v2V4.png)
+  ![Shows graphically the scramble](https://i.imgur.com/oIB0Skk.png)
     ![Shows graphically the scramble](https://i.imgur.com/glZewPE.png)
 
 ## Timer
@@ -78,7 +84,7 @@ If you break something just type `r` to restore the default config.
   ![Settings Menu](https://i.imgur.com/nBiTMkS.png)
 
 
-## Making Of
+## Visual Scrambles - Making Of
 
 Graphically Scrambles were made totally from scratch.
 
