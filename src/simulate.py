@@ -38,7 +38,7 @@ def printCube(w, y, r, o, b, g, better):
                 else:
                     layer[layer.index(row)][row.index(color)] = colors[color]
 
-    if initial == True:
+    if initial == "True":
         print("")
         print("\033[30;40m" + "                " + w[0][0] + " " + w[0][1] + " " +  w[0][2], end= " \n\r")
         print("\033[30;40m" + "                " + w[1][0] + " " + w[1][1] + " " +  w[1][2], end= " \n\r")

@@ -181,7 +181,11 @@ def menu(clear, wait, main, stdscr, focus):
 
     if key == 2: # e
 
+        time.sleep(0.7)
+
         new_value = []
+
+        print("Enter to submit")
         while True:
 
             key = stdscr.getch()
@@ -191,6 +195,7 @@ def menu(clear, wait, main, stdscr, focus):
                 break
 
             elif not key == -1:
+                
                 new_value.append(chr(key))
 
             print("".join(new_value), end = "\r")

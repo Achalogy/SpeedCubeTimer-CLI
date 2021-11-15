@@ -4,19 +4,16 @@ Last update may contain Bugs, **please report it.**
 
 ## Recent changes
 
-- Menu simplified
-- **NEW** Stats
-  - Delete All confirmation
-  - Delete **SINGLE** solve
-  - Personal Records warnings
+- **NEW** SETTINGS!
+  - Edit scramble settings
+  - Edit timer settings
+  - Personalizate Visual Scrambles
 
-    ![Personal record warning Screenshot](https://i.imgur.com/QTbkaEV.png)
+    ![Settings menu](https://i.imgur.com/nBiTMkS.png)
 
 - Code Cleaned
 
 Next update will be again Code Clean ( Cube Simulation ) 
-
-### v4.0.0 will add **SETTINGS**
 
 ## Installation
 
@@ -38,11 +35,11 @@ Generates a random 20 moves scramble which works this way:
     1/4 Moves will be Counter-Clockwise ( U' )
     1/4 Moves will be Double ( U2 )
 
---- --- **NEW!** --- ---
-
 Terminal shows graphically the scramble.
 
   ![Shows graphically the scramble](https://i.imgur.com/VRSwl5q.png)
+  ![Shows graphically the scramble](https://i.imgur.com/WQ2v2V4.png)
+    ![Shows graphically the scramble](https://i.imgur.com/glZewPE.png)
 
 ## Timer
 
@@ -69,6 +66,17 @@ Supports:
   - a100 Current and Better Average
 
   ![Current and global stats for Average, a3, a5, a12 and a100](https://i.imgur.com/Yrlfzgq.png)
+
+## Settings Menu
+
+Navigate with `w` and `s`.
+
+To edit a setting type `e` then the new value and finally press `Enter` to submit.
+
+If you break something just type `r` to restore the default config.
+
+  ![Settings Menu](https://i.imgur.com/nBiTMkS.png)
+
 
 ## Making Of
 
