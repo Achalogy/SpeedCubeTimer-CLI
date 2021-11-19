@@ -13,6 +13,9 @@ curses.noecho()
 curses.cbreak()
 stdscr.nodelay(1)
 
+def get():
+    return stdscr.getch()
+
 def stop():
     # Clear and ends process
     curses.endwin()
@@ -29,6 +32,7 @@ def wait(x):
     if isinstance(x, list):
 
         while True:
+            key_pressed = None
             key_pressed = stdscr.getch()
 
             for key in x:

@@ -114,7 +114,7 @@ def menu(clear, wait, main, stdscr, focus):
     configs_array = []
 
     for section in Config.sections():
-        
+
         x = 0
         apnd = []
 
@@ -164,39 +164,38 @@ def menu(clear, wait, main, stdscr, focus):
     print("e: Edit (USE THE CORRECT INPUT OR IT WILL BREAK)", end = "\n\r")
     print("r: Restore default config", end = "\n\r")
 
-    key = wait(["w", "s", "e", "r"," "])
+    keyS = wait(["w", "s", "e", "r"," "])
 
     # DOWN
     #print("Prev  " + prev_focus)
 
-    if key == 4: # 
+    if keyS == 4: # 
 
         return
 
-    if key == 3: # r
+    if keyS == 3: # r
 
         clear()
         os.remove(file_name)
         main()
 
-    if key == 2: # e
-
-        time.sleep(0.7)
+    if keyS == 2: # e
 
         new_value = []
 
         print("Enter to submit")
+
         while True:
 
-            key = stdscr.getch()
+            nKey = stdscr.getch()
 
-            if key == 10:
+            if nKey == 10:
 
                 break
 
-            elif not key == -1:
+            elif not nKey == -1:
                 
-                new_value.append(chr(key))
+                new_value.append(chr(nKey))
 
             print("".join(new_value), end = "\r")
         
@@ -206,10 +205,11 @@ def menu(clear, wait, main, stdscr, focus):
 
         write_conf(edit_section, edit_option, new_value)
 
-        menu(clear, wait, stdscr, main, focus)
+        menu(clear, wait, main, stdscr, focus)
 
-    elif key == 1: # s
-        menu(clear, wait, stdscr, main, new_focus)
-    elif key == 0: # w
-        menu(clear, wait, stdscr, main, prev_focus)
+    elif keyS == 1: # s
+        menu(clear, wait, main, stdscr, new_focus)
+    elif keyS == 0: # w
+        menu(clear, wait, main, stdscr, prev_focus)
 
+    print("a")
